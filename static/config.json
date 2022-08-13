@@ -23,7 +23,7 @@
    "startupOptions.infoBackground": "https://source.unsplash.com/random/?love",
 	"startupOptions" : {
 		"channel": "#romania,#apropo",
-		"server" : "irckiwi.cuplu.eu",
+		"server" : "51.68.173.103",
 		"port" : 2096,
 		"tls" : true,
 		"direct" : true,
