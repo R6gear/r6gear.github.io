@@ -1,0 +1,149 @@
+{
+	"windowTitle": "Kiwi Chat Mobil Cuplu chat Apropo Chat Romania Online Chat Romanesc Desire Chat RO",
+	"startupScreen": "plugin-asl",
+	"hide_advanced": true,
+	"showAutoComplete": true,
+	"restricted": true,
+	"showEmojiPicker": false,
+	"language": "ro-ro",
+	"warnOnExit":true,
+	"sidebarPinned": true,
+	"sidebarDefault": "nicklist",
+	"remember_buffers":true,
+	"noticeActiveBuffer": false,
+	"theme": "Nightswatch",
+	"buffers": {
+		"showTopics": true,
+		"share_typing": true
+	},
+	"kiwiServer": "https://localdev.clients.kiwiirc.com/webirc/kiwiirc/",
+	"themes": [
+		{ "name": "Default", "url": "static/themes/default" },
+		{ "name": "Dark", "url": "static/themes/dark" },
+		{ "name": "Coffee", "url": "static/themes/coffee" },
+		{ "name": "GrayFox", "url": "static/themes/grayfox" },
+		{ "name": "Nightswatch", "url": "static/themes/nightswatch" },
+		{ "name": "Osprey", "url": "static/themes/osprey" },
+		{ "name": "Radioactive", "url": "static/themes/radioactive" },
+		{ "name": "Sky", "url": "static/themes/sky" }
+	],
+   "startupOptions.infoBackground": "https://source.unsplash.com/random/?love",
+	"startupOptions" : {
+		"channel": "#apropo,#romania,#trivia,#scrabble",
+		"server" : "irc.vedeta.eu",
+		"port" : 2096,
+		"tls" : true,
+		"direct" : true,
+		"nick": "cuplu?",
+		"showChannel": false,
+		"greetingText": "Cuplu Chat - Bun venit!",
+		"infoContent": "<h3>Kiwi Chat Mobil Cuplu chat Apropo Chat Romania Online Chat Romanesc Desire Chat RO</h3><p>Inainte de a intra pe chat Cuplu apropo Chat Mobil Romania Citeste bine regulile  </p>",
+      "buttonText": "Intra pe Cuplu Chat Mobil",
+		"gecos": "kiwi websokets Cuplu Chat client"
+
+	},
+	"buffers": {
+		"default_kick_reason": "Booom Kick dude!.",
+		"share_typing": false,
+		"nicklist_avatars": true,
+		"messageLayout": "compact",
+	},
+	"plugins": [
+		{"name": "conference", "url": "static/plugins/plugin-conference.js"},
+	   {"name": "avatars", "url": "static/plugins/avatars.html"},
+	   {"name": "fontsize", "url": "static/plugins/plugin-fontsize.html"},
+	   {"name": "mobile", "url": "static/plugins/plugin-mobile-keepalive.html"},
+	   {"name": "emoji", "url": "static/plugins/plugin-emoji-prelim.min.js"},
+	   {"name": "user-ignore", "url": "static/plugins/plugin-ignore324455.html"},
+	   {"name": "ident", "url": "static/plugins/ident.js"},
+	   {"name": "asl", "url": "static/plugins/plugin-asl2.js"},
+	   {"name": "nickserv", "url": "static/plugins/plugin-nickserv.js"},
+		{"name": "radio", "url": "static/plugins/plugin-radio.html"}
+	],
+	"plugin-asl" : {
+		"localesPath": "static/plugins/plugin-asl/locales",
+		"gecosType": 1,
+		"showRealname": false,
+		"showUserBrowser": true,
+		"userBrowserIcon": "fa-heart",
+		"fallbackColour": "",
+		"singleLineUserbox": false,
+		"singleLineString": {
+			"age": "%a years",
+			"sex": "%s",
+			"location": "%l",
+			"separator": " ",
+		},
+		"allowedAge": {
+			"min": 18,
+			"max": 99
+		},
+		"ageRanges": [
+			{ "name": "_all", "value": "all" },
+			{ "name": "< 25", "value": "<25" },
+			{ "name": "25 - 35", "value": "25-36" },
+			{ "name": "35 - 45", "value": "35-46" },
+			{ "name": "> 45", "value": ">45" },
+		],
+		"sexes": {
+			"_male": { "chars": "M", "colour": "#00F" },
+			"_female": { "chars": "F", "colour": "#F00" },
+			"_other": { "chars": "S", "colour": "#000" },
+		},
+		"queryKeys": {
+			"age": "age",
+			"sex": "sex",
+			"location": "location",
+			"realname": "realname",
+		},
+	},
+	"plugin-radio": {
+		"url": "static/stations.json"
+	},
+    "conference": {
+        "server": "meet.jit.si",
+		"queries": true,
+		"channels": true,
+		"viewHeight": "60%",
+		"enabledInChannels": ["*"],
+		"groupInvitesTTL": 30000,
+		"maxParticipantsLength": 60,
+		"participantsMore": "more...",
+		"inviteText": "{{ nick }} te invita la un apel privat. https://ro.cuplu.eu/ vino si tu.",
+		"joinText": "{{ nick }} a intrat in conferinta.de pe https://ro.cuplu.eu/ hai si tu.",
+		"joinButtonText": "Intra si tu!",
+        "secure": false,
+		"interfaceConfigOverwrite": {
+			"SHOW_JITSI_WATERMARK": false,
+			"SHOW_WATERMARK_FOR_GUESTS": false,
+			"TOOLBAR_ALWAYS_VISIBLE": false,
+			"LANG_DETECTION": true,
+			"MOBILE_APP_PROMO": false,
+			"SHOW_CHROME_EXTENSION_BANNER": false,
+			"SETTINGS_SECTIONS": [],
+			"TOOLBAR_BUTTONS": [
+				"microphone", "camera", "hangup",
+				"videoquality", "filmstrip", "fodeviceselection",
+			],
+		},
+		"configOverwrite": {
+			"startWithVideoMuted": false,
+			"startWithAudioMuted": false,
+			"enableInsecureRoomNameWarning": false,
+			"disableDeepLinking": true,
+			"prejoinPageEnabled": true,
+			"hideParticipantsStats": true,
+			"disableRemoteControl": true,
+			"remoteVideoMenu": {
+				"disableKick": true,
+			},
+			"disableRemoteMute": true,
+			"p2p": {
+				"enabled": true,
+				"stunServers": [
+					{ "urls": "stun:meet-jit-si-turnrelay.jitsi.net:443" },
+				],
+			},
+		},
+    }
+}

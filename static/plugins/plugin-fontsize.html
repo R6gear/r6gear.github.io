@@ -1,0 +1,144 @@
+
+<template id="font-size">
+    <div class="kiwi-format-buttons"><span class="kiwi-format-icon" style="font-family:'Times New Roman';"><sub>T</sub>T</span>
+        <div class="kiwi-fontsize-container">
+        <a class="kiwi-decrease-font" title="Micsoreaza font"
+             @click="decreaseFont"
+        >
+            <i class="fa fa-minus-square"></i>
+        </a>
+        <a class="kiwi-increase-font" title="Mareste font"
+             @click="increaseFont"
+        >
+            <i class="fa fa-plus-square"></i>
+
+        </a>
+        </div>
+    </div>
+</template>
+<script>
+    kiwi.plugin('font-size', function(kiwi, log) {
+
+        let fontSize = new kiwi.Vue({
+            template: '#font-size',
+            data() {
+                return {
+                    size: 90,
+                };
+            },
+            mounted() {
+                this.$nextTick(function() {
+                    window.addEventListener('resize', this.resetStyle);
+                });
+            },
+            methods: {
+                resetStyle: function resetStyle() {
+                    if (window.innerWidth <= 769) {
+                        document.querySelector('.kiwi-statebrowser').style.width = '';
+                        document.querySelector('.kiwi-workspace').style.marginLeft = '';
+                        document.querySelector('.kiwi-sidebar').style.maxWidth = '';
+                        document.querySelector('.kiwi-sidebar').style.width = '';
+                        s.remove();
+                    }
+                },
+                increaseFont: function increaseFont() {
+                    if(this.size < 120) {
+                        this.size = this.size + 5;
+                        console.log('reduce', this.size);
+                    }
+                    this.resizeFont()
+                },
+                decreaseFont: function decreaseFont() {
+                    if(this.size > 70) {
+                        this.size = this.size - 5;
+                        console.log('increase', this.size);
+                    }
+                    this.resizeFont()
+                },
+                resizeFont: function resizeFont() {
+                    s=document.createElement('style');
+                    document.head.appendChild(s);
+                    
+                    s.appendChild(document.createTextNode('.kiwi-wrap { font-size: '+ this.size +'%}'));
+                    s.appendChild(document.createTextNode('.kiwi-statebrowser-channel { line-height: '+ ((30 * (this.size))/100) +'px}'));
+                    //s.appendChild(document.createTextNode('.kiwi-messagelist-body { line-height: '+ ((1.5 * (this.size))/100) +'em}'));
+                    s.appendChild(document.createTextNode('.kiwi-nicklist-user { line-height: '+ ((26 * (this.size))/100) +'px}'));
+                    s.appendChild(document.createTextNode('.kiwi-statebrowser-network .kiwi-statebrowser-network-header { line-height: '+ ((45 * (this.size))/100) +'px}'));
+                    
+                    if (window.innerWidth > 769) {
+                        document.querySelector('.kiwi-statebrowser').style.width = (230 + ((this.size - 100)*2)) + 'px';
+                        document.querySelector('.kiwi-workspace').style.marginLeft = (230 + ((this.size - 100)*2)) + 'px';
+                        document.querySelector('.kiwi-sidebar').style.maxWidth = (260 + (this.size - 100)) + 'px';
+                        document.querySelector('.kiwi-sidebar').style.width = (260 + (this.size - 100)) + 'px';
+                    }
+                },
+            },
+        });
+        kiwi.addUi('browser', fontSize.$mount().$el);
+    });
+</script>
+
+<style>
+
+.kiwi-format-icon {
+	font-weight: bold;
+	font-size: 1.2em;
+	margin-left: 7px;
+}
+.kiwi-format-icon sub {
+	font-size:0.70em;
+	top:-5px;
+}
+.kiwi-format-buttons {
+
+    display: block;
+    text-align:left;
+    padding-left:5px;
+}
+
+.kiwi-fontsize-container {
+    width: 25px;
+    height:24px;
+    display: inline;
+    padding:1px;
+    /*border-radius:5px;
+    background: linear-gradient(to bottom right, #666 0%, #666 50%, #333 50%, #333 100%);
+    box-shadow: 0px 0px 2px #666;*/
+    opacity:0.8;
+    margin-bottom: 5px;
+}
+
+.kiwi-decrease-font,
+.kiwi-increase-font {
+    border: 0px solid #555;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 1.0em;
+    /*margin: 5px;
+    margin-left: 7.5px;
+    margin-right: 7.5px;*/
+    padding: 0px !important;
+    opacity: 0.8;
+    font-weight:600;
+line-height: 35px;
+
+}
+
+/*.kiwi-decrease-font::before,
+.kiwi-increase-font::before {
+content: "\f002";
+font-family:FontAwesome;
+}*/
+
+.kiwi-decrease-font:hover,
+.kiwi-increase-font:hover {
+    opacity: 1;
+}
+
+
+@media screen and (max-width: 769px) {
+    .kiwi-format-buttons {
+        right: 20px;
+    }
+}
+</style>
